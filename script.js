@@ -44,4 +44,15 @@ function renderLists() {
   });
 }
 
+window.toggleFavorite = function(id) {
+  if (favorites.includes(id)) {
+    favorites = favorites.filter(favId => favId !== id);
+  } else {
+    
+    favorites.push(id);
+  }
+  renderLists(); 
+};
+
+
 
