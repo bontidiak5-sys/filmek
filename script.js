@@ -25,8 +25,11 @@ function renderLists() {
   movieList.innerHTML = '';
   favoritesList.innerHTML = '';
 
- 
-  movies.forEach(movie => {
+  if (favoritesList.innerHTML===''){
+    favoritesList.innerHTML = 'Nincs kedvenc film.';
+  }
+  
+     movies.forEach(movie => {
     const isFavorite = favorites.includes(movie.id);
     const div = document.createElement('div');
     div.className = 'movie-item';
@@ -36,6 +39,9 @@ function renderLists() {
     `;
     movieList.appendChild(div);
   });
+  
+ 
+  
 
  
   favorites.forEach(favId => {
@@ -48,6 +54,10 @@ function renderLists() {
     }
   });
 }
+  
+
+  
+   
 
 
 window.toggleFavorite = function(id) {
