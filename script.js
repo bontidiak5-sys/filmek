@@ -54,5 +54,5 @@ window.toggleFavorite = function(id) {
   renderLists(); 
 };
 
-
+renderLists();
 
