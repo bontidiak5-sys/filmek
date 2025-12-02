@@ -16,6 +16,7 @@ const movies = [
   {"id":15,"title":"Toy Story","year":1995,"genre":"Animáció"}
 ];
 
+
 let favorites = [];
 
 function renderLists() {
@@ -23,6 +24,8 @@ function renderLists() {
   const favoritesList = document.getElementById('favoritesList');
   movieList.innerHTML = '';
   favoritesList.innerHTML = '';
+
+ 
   movies.forEach(movie => {
     const isFavorite = favorites.includes(movie.id);
     const div = document.createElement('div');
@@ -33,7 +36,9 @@ function renderLists() {
     `;
     movieList.appendChild(div);
   });
-    avorites.forEach(favId => {
+
+ 
+  favorites.forEach(favId => {
     const movie = movies.find(m => m.id === favId);
     if (movie) {
       const div = document.createElement('div');
@@ -44,8 +49,10 @@ function renderLists() {
   });
 }
 
+
 window.toggleFavorite = function(id) {
   if (favorites.includes(id)) {
+    
     favorites = favorites.filter(favId => favId !== id);
   } else {
     
@@ -54,5 +61,9 @@ window.toggleFavorite = function(id) {
   renderLists(); 
 };
 
+
 renderLists();
+
+
+
 
