@@ -16,4 +16,32 @@ const movies = [
   {"id":15,"title":"Toy Story","year":1995,"genre":"Animáció"}
 ];
 
+let favorites = [];
+
+function renderLists() {
+  const movieList = document.getElementById('movieList');
+  const favoritesList = document.getElementById('favoritesList');
+  movieList.innerHTML = '';
+  favoritesList.innerHTML = '';
+  movies.forEach(movie => {
+    const isFavorite = favorites.includes(movie.id);
+    const div = document.createElement('div');
+    div.className = 'movie-item';
+    div.innerHTML = `
+      <span class="star${isFavorite ? ' filled' : ''}" onclick="toggleFavorite(${movie.id})">&#9733;</span>
+      <span>${movie.title} (${movie.year}) - ${movie.genre}</span>
+    `;
+    movieList.appendChild(div);
+  });
+    avorites.forEach(favId => {
+    const movie = movies.find(m => m.id === favId);
+    if (movie) {
+      const div = document.createElement('div');
+      div.className = 'movie-item';
+      div.innerHTML = `<span>${movie.title} (${movie.year}) - ${movie.genre}</span>`;
+      favoritesList.appendChild(div);
+    }
+  });
+}
+
 
